@@ -1,0 +1,41 @@
+{
+  "kind": "collectionType",
+  "collectionName": "fyps",
+  "info": {
+    "singularName": "fyp",
+    "pluralName": "fyps",
+    "displayName": "fyp"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "project_name": {
+      "type": "string",
+      "required": true
+    },
+    "collaboration": {
+      "type": "string",
+      "required": true
+    },
+    "supervisor_name": {
+      "type": "string",
+      "required": true
+    },
+    "lu_supervisor_name": {
+      "type": "string",
+      "required": true
+    },
+    "presentation_date": {
+      "type": "datetime",
+      "required": true
+    },
+    "admitted_application": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::admitted-application.admitted-application",
+      "inversedBy": "fyp"
+    }
+  }
+}

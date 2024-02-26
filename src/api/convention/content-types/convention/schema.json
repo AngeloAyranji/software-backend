@@ -1,0 +1,40 @@
+{
+  "kind": "collectionType",
+  "collectionName": "conventions",
+  "info": {
+    "singularName": "convention",
+    "pluralName": "conventions",
+    "displayName": "convention"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "info": {
+      "type": "text",
+      "required": true
+    },
+    "attachment": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false,
+      "required": true
+    },
+    "date": {
+      "type": "date",
+      "required": true
+    },
+    "universities": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::university.university",
+      "mappedBy": "convention"
+    }
+  }
+}

@@ -1,0 +1,19 @@
+version: '3.5'
+services:
+  postgresdb:
+    image: postgres:12
+    restart: unless-stopped
+    volumes:
+      - ./pgdata:/var/lib/postgresql/data
+    ports:
+      - "5433:5432"
+    environment:
+      - POSTGRES_DB=roumieh-backend
+      - POSTGRES_USER=root
+      - POSTGRES_PASSWORD=root
+    networks:
+      - app-network
+
+networks:
+  app-network:
+    driver: bridge

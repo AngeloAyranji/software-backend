@@ -1,0 +1,60 @@
+{
+  "kind": "collectionType",
+  "collectionName": "admitted_applications",
+  "info": {
+    "singularName": "admitted-application",
+    "pluralName": "admitted-applications",
+    "displayName": "admitted_application",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "application": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::application.application",
+      "inversedBy": "admitted_applications"
+    },
+    "admission_letter": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files"
+      ]
+    },
+    "nomination_letter": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files"
+      ]
+    },
+    "confirmation": {
+      "type": "boolean"
+    },
+    "currently_enrolled": {
+      "type": "boolean"
+    },
+    "expected_graduation_date": {
+      "type": "date"
+    },
+    "scholarship": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::scholarship.scholarship"
+    },
+    "fyp": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::fyp.fyp",
+      "mappedBy": "admitted_application"
+    }
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "kind": "collectionType",
+  "collectionName": "language_tests",
+  "info": {
+    "singularName": "language-test",
+    "pluralName": "language-tests",
+    "displayName": "language_test"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "programs": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::program.program",
+      "mappedBy": "language_test"
+    },
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "acceptance_grade": {
+      "type": "decimal",
+      "required": true
+    }
+  }
+}

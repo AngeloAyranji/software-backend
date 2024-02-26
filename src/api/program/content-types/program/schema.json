@@ -1,0 +1,93 @@
+{
+  "kind": "collectionType",
+  "collectionName": "programs",
+  "info": {
+    "singularName": "program",
+    "pluralName": "programs",
+    "displayName": "program"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "university": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::university.university",
+      "inversedBy": "programs"
+    },
+    "type": {
+      "type": "enumeration",
+      "enum": [
+        "DD",
+        "M2",
+        "exchange",
+        "DD+1",
+        "DD+M2"
+      ],
+      "required": true
+    },
+    "departement": {
+      "type": "enumeration",
+      "enum": [
+        "EE",
+        "ME",
+        "PE",
+        "CE"
+      ],
+      "required": true
+    },
+    "tuition": {
+      "type": "integer",
+      "required": true
+    },
+    "registration": {
+      "type": "integer",
+      "required": true
+    },
+    "students_count": {
+      "type": "integer",
+      "required": true
+    },
+    "call_date": {
+      "type": "date",
+      "required": true
+    },
+    "result_date": {
+      "type": "date",
+      "required": true
+    },
+    "submission_date": {
+      "type": "date"
+    },
+    "nomination": {
+      "type": "boolean",
+      "default": true,
+      "required": true
+    },
+    "scholarship": {
+      "type": "boolean",
+      "default": false,
+      "required": true
+    },
+    "recruitement": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::recruitement.recruitement",
+      "mappedBy": "program"
+    },
+    "language_test": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::language-test.language-test",
+      "inversedBy": "programs"
+    },
+    "scholarships": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::scholarship.scholarship",
+      "mappedBy": "program"
+    }
+  }
+}

@@ -1,0 +1,85 @@
+{
+  "kind": "collectionType",
+  "collectionName": "recruitements",
+  "info": {
+    "singularName": "recruitement",
+    "pluralName": "recruitements",
+    "displayName": "recruitement",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "sur_dossier": {
+      "type": "boolean",
+      "default": false,
+      "required": true
+    },
+    "language_level": {
+      "type": "enumeration",
+      "enum": [
+        "TOEFL",
+        "B2"
+      ],
+      "required": true
+    },
+    "tuition_fees_exemption": {
+      "type": "boolean",
+      "default": false,
+      "required": true
+    },
+    "registration_fees_exemption": {
+      "type": "boolean",
+      "default": false,
+      "required": true
+    },
+    "oral_exam": {
+      "type": "boolean",
+      "default": false,
+      "required": true
+    },
+    "written_exam": {
+      "type": "boolean",
+      "default": false,
+      "required": true
+    },
+    "motivation_letter": {
+      "type": "boolean",
+      "default": true,
+      "required": true
+    },
+    "procedure": {
+      "type": "enumeration",
+      "enum": [
+        "ulfg2",
+        "campus-france",
+        "online",
+        "parallele"
+      ],
+      "required": true
+    },
+    "recommendation_letter": {
+      "type": "boolean",
+      "default": true,
+      "required": true
+    },
+    "latest_grades": {
+      "type": "boolean",
+      "default": true,
+      "required": true
+    },
+    "motivational_interviewing": {
+      "type": "boolean",
+      "default": false,
+      "required": true
+    },
+    "program": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::program.program",
+      "inversedBy": "recruitement"
+    }
+  }
+}

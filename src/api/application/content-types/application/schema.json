@@ -1,0 +1,79 @@
+{
+  "kind": "collectionType",
+  "collectionName": "applications",
+  "info": {
+    "singularName": "application",
+    "pluralName": "applications",
+    "displayName": "application"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "admin_user": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "admin::user"
+    },
+    "grades": {
+      "allowedTypes": [
+        "images",
+        "files"
+      ],
+      "type": "media",
+      "multiple": true,
+      "required": false
+    },
+    "average": {
+      "type": "decimal"
+    },
+    "program": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::program.program"
+    },
+    "cv": {
+      "allowedTypes": [
+        "images",
+        "files"
+      ],
+      "type": "media",
+      "multiple": false
+    },
+    "motivation_letter": {
+      "allowedTypes": [
+        "images",
+        "files"
+      ],
+      "type": "media",
+      "multiple": false
+    },
+    "recommendation_letter": {
+      "allowedTypes": [
+        "images",
+        "files"
+      ],
+      "type": "media",
+      "multiple": false
+    },
+    "authorized": {
+      "type": "boolean",
+      "default": false
+    },
+    "waitlist": {
+      "type": "boolean",
+      "default": true
+    },
+    "admitted": {
+      "type": "boolean",
+      "default": false
+    },
+    "admitted_applications": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::admitted-application.admitted-application",
+      "mappedBy": "application"
+    }
+  }
+}
