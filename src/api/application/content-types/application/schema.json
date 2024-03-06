@@ -4,26 +4,22 @@
   "info": {
     "singularName": "application",
     "pluralName": "applications",
-    "displayName": "application"
+    "displayName": "application",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
   },
   "pluginOptions": {},
   "attributes": {
-    "admin_user": {
-      "type": "relation",
-      "relation": "oneToOne",
-      "target": "admin::user"
-    },
     "grades": {
+      "type": "media",
+      "multiple": true,
+      "required": false,
       "allowedTypes": [
         "images",
         "files"
-      ],
-      "type": "media",
-      "multiple": true,
-      "required": false
+      ]
     },
     "average": {
       "type": "decimal"
@@ -34,28 +30,31 @@
       "target": "api::program.program"
     },
     "cv": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
       "allowedTypes": [
         "images",
         "files"
-      ],
-      "type": "media",
-      "multiple": false
+      ]
     },
     "motivation_letter": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
       "allowedTypes": [
         "images",
         "files"
-      ],
-      "type": "media",
-      "multiple": false
+      ]
     },
     "recommendation_letter": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
       "allowedTypes": [
         "images",
         "files"
-      ],
-      "type": "media",
-      "multiple": false
+      ]
     },
     "authorized": {
       "type": "boolean",
@@ -74,6 +73,12 @@
       "relation": "oneToMany",
       "target": "api::admitted-application.admitted-application",
       "mappedBy": "application"
+    },
+    "users_permissions_user": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "plugin::users-permissions.user",
+      "inversedBy": "applications"
     }
   }
 }

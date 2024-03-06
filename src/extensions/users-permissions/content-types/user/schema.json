@@ -85,6 +85,12 @@
     "year": {
       "type": "integer",
       "required": true
+    },
+    "applications": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::application.application",
+      "mappedBy": "users_permissions_user"
     }
   }
 }
